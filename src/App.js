@@ -1,15 +1,23 @@
 import './App.css';
 import Header from './components/Header';
 import FirstPageData from './components/firstPageData';
+import { useState,useEffect } from 'react'
 
-function App() {
+const App = () => {
 
+  const [item, setItem] = useState('');
   
+
+  const dataFetcher = (data) => {
+    // console.log("DATA HERE");
+    // console.log(data);
+    setItem(data);
+  }
 
   return (
     <div className="App">
-      <Header title="Hacker News"></Header>
-      <FirstPageData />
+      <Header dataFetcher={dataFetcher} title="Hacker News"></Header>
+      <FirstPageData  item={item}/>
     </div>
   );
 }
