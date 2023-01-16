@@ -16,7 +16,7 @@ const submitHandler = (event) => {
 }
 
     return (
-        <div>
+        <div style={{width: "69%"}}>
             <nav class="navbar" style={{ backgroundColor: "#ff6600" }}>
                 <div style={{ justifyContent: "space-between" }} class="container-fluid">
                     <div>
