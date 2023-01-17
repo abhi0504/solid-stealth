@@ -9,8 +9,6 @@ const App = () => {
   
 
   const dataFetcher = (data) => {
-    // console.log("DATA HERE");
-    // console.log(data);
     setItem(data);
   }
 

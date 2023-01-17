@@ -12,7 +12,7 @@ const Header = (props) => {
 
 const submitHandler = (event) => {
     event.preventDefault();
-    console.log(searchData);
+    // console.log(searchData);
     setSearchData('');
 }
 
