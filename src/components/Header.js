@@ -14,6 +14,7 @@ const submitHandler = (event) => {
     event.preventDefault();
     // console.log(searchData);
     setSearchData('');
+    props.switchHandler();
 }
 
     return (
@@ -26,8 +27,8 @@ const submitHandler = (event) => {
                     </div>
                     <div>
                         <form onSubmit={submitHandler} class="d-flex" role="search">
-                            <input style={{width: "300px" , height: "30px", display: "flex", alignItems: "center" , justifyContent: "center"}} class="form-control me-3" type="search" placeholder="Search" aria-label="Search" value={searchData} onChange={searchChangeHandler}/>
-                            <button style={{color:"white",border: '2px solid white', height: "30px", display: "flex", alignItems: "center" , justifyContent: "center"}}  class="btn btn-outline-success" type="submit">Search</button>
+                            {props.p1 ? <input style={{width: "300px" , height: "30px", display: "flex", alignItems: "center" , justifyContent: "center"}} class="form-control me-3" type="search" placeholder="Search" aria-label="Search" value={searchData} onChange={searchChangeHandler}/>: <></> }
+                            <button style={{color:"white",border: '2px solid white', height: "30px", display: "flex", alignItems: "center" , justifyContent: "center"}}  class="btn btn-outline-success" type="submit">Switch</button>
                         </form>
                     </div>
                 </div>

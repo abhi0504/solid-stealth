@@ -42,14 +42,14 @@ const Filter = (props) => {
                     })}
             </select>
 
-            <select onChange={onOptionChangeHandler2}>
+            {/* <select onChange={onOptionChangeHandler2}>
                     <option>Popularity</option>
                     {options2.map((option, index) => {
                         return <option key={index} >
                             {option}
                         </option>
                     })}
-            </select>
+            </select> */}
 
             <select onChange={onOptionChangeHandler3}>
                     <option>All Time</option>

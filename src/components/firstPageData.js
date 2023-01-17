@@ -11,6 +11,8 @@ const FirstPageData = (props) => {
     const [filter, setFilter] = useState('All');
     const [filter2, setFilter2] = useState('Popularity');
     const [filter3, setFilter3] = useState('All Time');
+    const [value2, setValue2] = useState('Popularity');
+
 
 
     function millisToMinutesAndSeconds(ms) {
@@ -68,6 +70,14 @@ const FirstPageData = (props) => {
 
 
 
+    const options2 = [ 'Time'];
+    const onOptionChangeHandler2 = (event) => {
+        // console.log("User Selected Value - ", event.target.value)
+        setValue2(event.target.value)
+        setFilter2(event.target.value)
+    }
+
+
 
     useEffect(() => {
 
@@ -75,14 +85,18 @@ const FirstPageData = (props) => {
 
         if (filter2 === 'Time') {
             let res = items;
+            console.log(items);
             res.sort((a, b) => b.time - a.time)
             setItems(res)
+            console.log(items);
 
         } else if (filter2 === 'Popularity') {
 
             let res = items;
+            console.log(items);
             res.sort((a, b) => b.points - a.points)
             setItems(res)
+            console.log(items);
         }
 
         console.log("Filter2 changed " + filter2);
@@ -140,7 +154,7 @@ const FirstPageData = (props) => {
 
 
 
-    }, [props.item, filter, filter2, filter3])
+    }, [props.item, filter])
 
     useEffect(() => {
         fetch("https://hn.algolia.com/api/v1/search_by_date?tags=story")
@@ -150,7 +164,7 @@ const FirstPageData = (props) => {
                     setIsLoaded(true);
 
                     let res = result.hits;
-                    res.sort((a, b) => b.points - a.points);
+                    // res.sort((a, b) => a.points - b.points);
                     setItems(res);
                     setItems2(res);
 
@@ -171,6 +185,14 @@ const FirstPageData = (props) => {
         return (
             <div>
                 <Filter filter={filterHandler} filter2={filterHandler2} filter3={filterHandler3} />
+                <select onChange={onOptionChangeHandler2}>
+                    <option>Popularity</option>
+                    {options2.map((option, index) => {
+                        return <option key={index} >
+                            {option}
+                        </option>
+                    })}
+            </select>
                 {
                     items.map(item => {
 
@@ -180,7 +202,7 @@ const FirstPageData = (props) => {
                         var diff = Math.abs(d1 - d2);  // difference in milliseconds
                         let minTime = millisToMinutesAndSeconds(diff);
 
-                        console.log(props.item);
+                        // console.log(props.item);
 
                         // props.dataFetcher(items);
                         return (
@@ -198,6 +220,7 @@ const FirstPageData = (props) => {
                         )
                     })
                 }
+                {console.log(items)}
             </div>
 
         );
