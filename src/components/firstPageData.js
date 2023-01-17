@@ -70,7 +70,7 @@ const FirstPageData = (props) => {
 
 
 
-    const options2 = [ 'Time'];
+    const options2 = ['Time'];
     const onOptionChangeHandler2 = (event) => {
         // console.log("User Selected Value - ", event.target.value)
         setValue2(event.target.value)
@@ -125,7 +125,7 @@ const FirstPageData = (props) => {
                 )
             })
 
-            console.log("HEHEH");
+            // console.log("HEHEH");
             console.log(arrayUnion(updatedList, updatedList2, areGamesEqual));
 
 
@@ -184,15 +184,18 @@ const FirstPageData = (props) => {
     } else {
         return (
             <div>
-                <Filter filter={filterHandler} filter2={filterHandler2} filter3={filterHandler3} />
-                <select onChange={onOptionChangeHandler2}>
-                    <option>Popularity</option>
-                    {options2.map((option, index) => {
-                        return <option key={index} >
-                            {option}
-                        </option>
-                    })}
-            </select>
+                <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px', paddingRight: '10px' }}>
+                    <Filter filter={filterHandler} filter2={filterHandler2} filter3={filterHandler3} />
+                    <select onChange={onOptionChangeHandler2}>
+                        <option>Popularity</option>
+                        {options2.map((option, index) => {
+                            return <option key={index} >
+                                {option}
+                            </option>
+                        })}
+                    </select>
+                </div>
+
                 {
                     items.map(item => {
 
@@ -215,6 +218,7 @@ const FirstPageData = (props) => {
                                     author={item.author}
                                     tags={item._tags}
                                     time={minTime}
+                                    page={"first"}
                                 />
                             </div>
                         )

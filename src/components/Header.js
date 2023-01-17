@@ -10,25 +10,25 @@ const Header = (props) => {
         props.dataFetcher(event.target.value);
     }
 
-const submitHandler = (event) => {
-    event.preventDefault();
-    // console.log(searchData);
-    setSearchData('');
-    props.switchHandler();
-}
+    const submitHandler = (event) => {
+        event.preventDefault();
+        // console.log(searchData);
+        setSearchData('');
+        props.switchHandler();
+    }
 
     return (
-        <div style={{width: "74.5%" , marginBottom: "20px"}}>
+        <div style={{ width: "74.5%", marginBottom: "20px" }}>
             <nav class="navbar" style={{ backgroundColor: "#ff6600" }}>
                 <div style={{ justifyContent: "space-between" }} class="container-fluid">
-                    <div style={{display: "flex", alignItems: "center" , justifyContent: "center"}}>
+                    <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
                         <img src={logo} height="25px" width="25px" alt="Logo" style={{ border: '2px solid white', marginRight: "10px" }} />
-                        <a style={{ fontFamily: "fantasy", fontSize:"18px" }} class="navbar-brand">{props.title}</a>
+                        <a style={{ fontFamily: "fantasy", fontSize: "18px" }} class="navbar-brand">{props.title}</a>
                     </div>
                     <div>
                         <form onSubmit={submitHandler} class="d-flex" role="search">
-                            {props.p1 ? <input style={{width: "300px" , height: "30px", display: "flex", alignItems: "center" , justifyContent: "center"}} class="form-control me-3" type="search" placeholder="Search" aria-label="Search" value={searchData} onChange={searchChangeHandler}/>: <></> }
-                            <button style={{color:"white",border: '2px solid white', height: "30px", display: "flex", alignItems: "center" , justifyContent: "center"}}  class="btn btn-outline-success" type="submit">Switch</button>
+                            {props.p1 ? <input style={{ width: "300px", height: "30px", display: "flex", alignItems: "center", justifyContent: "center" }} class="form-control me-3" type="search" placeholder="Search" aria-label="Search" value={searchData} onChange={searchChangeHandler} /> : <></>}
+                            <button style={{ color: "white", border: '2px solid white', height: "30px", display: "flex", alignItems: "center", justifyContent: "center" }} class="btn btn-outline-success" type="submit">Switch</button>
                         </form>
                     </div>
                 </div>
